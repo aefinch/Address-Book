@@ -24,16 +24,21 @@
 	    
 	     
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#!/items/list">All Contacts</a></li>
-	        <li><a href="#!/items/new">New Contact</a></li>
-	        <li><a href="#!/logout">Logout</a></li>   
-	        <li><a href="#!/auth">Authenticate</a></li>
+	        <li><a href="#">Logout</a></li>   
+	        <li><a href="#">Authenticate</a></li>
 	        
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
 	<div ng-controller="ContactCtrl">
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<button ng-show="showContactView" class="col-xs-6 btn btn-success" ng-click="newContact()">New Contact</button>
+				<button ng-show="!showContactView" class="col-xs-6 btn btn-warning" ng-click="allContacts()">All Contacts</button>
+
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-xs-8 col-xs-offset-2">
 			<h1>My Address Book</h1>
@@ -67,12 +72,17 @@
 
 
 				<h3>Contact List</h3>
-                <div>
+                <div ng-repeat="contact in contacts | filter: searchText">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="col-xs-7"></div>
                             <div class="col-xs-1 col-xs-offset-2"></div>            
-                            <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o"></button></div>
+                            <div class="col-xs-12">
+								<h1>{{contact.firstName}} {{contact.lastName}}</h1>
+                            </div>
+                            <div class="col-xs-1">
+	                            <button class="btn btn-danger fa fa-trash-o"></button>
+                            </div>
                         </div>
                     </div>
                 </div>					
