@@ -5,7 +5,7 @@ app.run((FIREBASE_CONFIG) => {
 app.controller("ContactCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {
 	$scope.showContactView = true;
 
-	$scope.newContact = () => {
+	$scope.newContactView = () => {
 		$scope.showContactView = false;
 	};
 	$scope.allContacts = () => {
@@ -18,7 +18,6 @@ app.controller("ContactCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {
 			$http.get(`${FIREBASE_CONFIG.databaseURL}/addresses.json`)
 			.then((results) => {
 				var contactList = results.data;
-				console.log(contactList);
 				Object.keys(contactList).forEach((key) => {
 					contactList[key].id = key;
 					contacts.push(contactList[key]);
@@ -41,7 +40,7 @@ app.controller("ContactCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {
 
 	let postNewContact = (newContact) => {
 		return $q((resolve, reject) => {
-			$http.post(`${FIREBASE_CONFIG.databaseURL}/addresses.json`, JSON.stringify(newItem))
+			$http.post(`${FIREBASE_CONFIG.databaseURL}/addresses.json`, JSON.stringify(newContact))
 			.then((resultz) => {
 				resolve(resultz);
 			}).catch((error) => {
@@ -51,10 +50,10 @@ app.controller("ContactCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {
 	};
 
 	$scope.addNewContact = () => {
-		postNewItem($scope.newContact).then(() => {
+		postNewContact($scope.newContact).then(() => {
 			$scope.newContact = {};
-			$scope.showListView = true;
-			getItems();
+			$scope.showContactView = true;
+			getContacts();
 		}).catch((error) => {
 			console.log("Add error", error);
 		});
