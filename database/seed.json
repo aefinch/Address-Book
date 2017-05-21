@@ -1,0 +1,30 @@
+{
+	"addresses": {
+		"address0": {
+			"firstName": "Andrea",
+			"lastName": "Finch",
+			"email": "joeCool@gmail.com",
+			"phoneNumber": "615-555-1232",
+			"address": {
+				"houseNumber": "1234",
+				"streetName": "main street",
+				"city": "Nashville",
+				"state": "TN",
+				"zipCode": "12345"
+			}
+		},
+		"address1": {
+			"firstName": "Rachael",
+			"lastName": "Langley",
+			"email": "coolBeans@gmail.com",
+			"phoneNumber": "615-555-1234",
+			"address": {
+				"houseNumber": "1234",
+				"streetName": "main street",
+				"city": "Franklin",
+				"state": "TN",
+				"zipCode": "12346"
+			}
+		}
+	}
+}
