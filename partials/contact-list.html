@@ -1,0 +1,20 @@
+<input type="text" name="" placeholder="Search Contacts..." ng-model="searchText">
+
+<h3>Contact List</h3>
+<div ng-repeat="contact in contacts | filter: searchText">
+    <div class="panel panel-default">
+        <div class="panel-body">          
+            <div class="col-xs-12">
+				<h3><a ng-href="#!/contact/view/{{contact.id}}">{{contact.firstName}} {{contact.lastName}}</a></h3>
+				<a href="mailto:{{contact.email}}">{{contact.email}}</a>
+				<p>{{contact.phoneNumber}}</p>
+				<h4>Address:</h4>
+				<div>{{contact.address.houseNumber}} {{contact.address.streetName}}</div>
+				<div>{{contact.address.city}}, {{contact.address.state}} {{contact.address.zipCode}}</div>
+            </div>
+            <div class="col-xs-1">
+                <button class="btn btn-danger fa fa-trash-o" ng-click="deleteContact(contact.id)"></button>
+            </div>
+        </div>
+    </div>
+</div>

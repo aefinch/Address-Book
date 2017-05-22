@@ -1,0 +1,11 @@
+<!-- <h1>Contact: {{selectedContact.contact}}</h1>
+<button class="btn btn-warning"><a ng-href="#!/contact/edit/{{selectedcontact.id}}">Edit</a></button>
+<h2>Assigned To: {{selectedContact.assignedTo}}</h2>
+<h2>Completed ?: {{selectedItem.isCompleted}}</h2> -->
+
+<h3>{{selectedContact.firstName}} {{selectedContact.lastName}}</h3>
+<a href="mailto:{{selectedContact.email}}">{{selectedContact.email}}</a>
+<p>{{selectedContact.phoneNumber}}</p>
+<h4>Address:</h4>
+<div>{{selectedContact.address.houseNumber}} {{selectedContact.address.streetName}}</div>
+<div>{{selectedContact.address.city}}, {{selectedContact.address.state}} {{selectedContact.address.zipCode}}</div>
